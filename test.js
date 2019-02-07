@@ -25,7 +25,7 @@ function clicked(e){
 function reset(){
     Array.from(dropdown.children).forEach(e =>{
         if(document.querySelector(e.getAttribute("target-id")).classList.contains("expanded")){
-            console.log(document.querySelector(e.getAttribute("target-id")).setAttribute("class", "collapsed"))
+           document.querySelector(e.getAttribute("target-id")).setAttribute("class", "collapsed");
         }
     })
 }

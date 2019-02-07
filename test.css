@@ -2,12 +2,6 @@
     display: inline-block;
 }
 
-li {
-    float: left;
-    list-style-type: none;
-    margin: 0 2px 0 2px;
-}
-
 .collapsed {
     display: none;
 }
