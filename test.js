@@ -1,27 +1,31 @@
+
+
+// 1. set click listener on dropdown container.
 let dropdown = document.querySelector("#dropdown"); 
-
-let children = Array.from(dropdown.children);
-
-let target = [];
-let i = 0;
+dropdown.addEventListener("click", clicked);
 
 
-children.forEach( e => {
-    e.addEventListener("click", clicked);
-    target[i] = document.querySelector("#" + e.getAttribute("target"));
-    i++;
-});
-
+// 2. if the target does not have class expanded when clicked then add class expand.
+//    otherwise reset all the targets.
 function clicked(e){
-
-    let content = document.querySelector("#" + e.target.getAttribute("target"));
+    let buttonid = e.target.getAttribute("target-id");
+    let button = document.querySelector(buttonid);
     
-    target.forEach(e => {
-        if(e == content && e.style.display != "inline-block"){
-            e.style.display = "inline-block";
-        } else{
-            e.style.display = "none";
-        }
-    });
+    if(button.getAttribute("class") != "expanded"){
+        reset();
+        button.setAttribute("class", "expanded");
+    } else{
+        reset();
+    }
+    
+}
 
+// 3. Reset function loops over all targets
+//    sets the class to collapse.
+function reset(){
+    Array.from(dropdown.children).forEach(e =>{
+        if(document.querySelector(e.getAttribute("target-id")).classList.contains("expanded")){
+            console.log(document.querySelector(e.getAttribute("target-id")).setAttribute("class", "collapsed"))
+        }
+    })
 }

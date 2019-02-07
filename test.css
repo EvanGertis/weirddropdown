@@ -8,7 +8,10 @@ li {
     margin: 0 2px 0 2px;
 }
 
-.dropdown-content {
+.collapsed {
     display: none;
-    position: absolute;
+}
+
+.expanded {
+    display: inline-block;
 }
